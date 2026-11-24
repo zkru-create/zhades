@@ -1,0 +1,48 @@
+{
+  "name": "Zhades",
+  "tagline": "style, stories & a splash of play",
+  "description": "Zhades is Z's corner of the internet: style, stories, games, paintings and creator life, from Bengaluru.",
+  "url": "https://zhades.pages.dev",
+  "author": "Z",
+  "bio": "Gamer, painter, storyteller, self stylist and content creator from Bengaluru.",
+  "footerLine": "gamer · painter · storyteller · self stylist · creator, Bengaluru",
+  "social": {
+    "instagram": "",
+    "youtube": "",
+    "pinterest": ""
+  },
+  "categories": [
+    {
+      "slug": "shade-stories",
+      "name": "Shade Stories",
+      "nav": "Style",
+      "description": "Outfits, palettes and things that just look good.",
+      "color": "#7FA8FF",
+      "label": "#1F45B8"
+    },
+    {
+      "slug": "tinted-worlds",
+      "name": "Tinted Worlds",
+      "nav": "Gaming",
+      "description": "What I'm playing, loving and rage-quitting.",
+      "color": "#7FD3E6",
+      "label": "#1F6F80"
+    },
+    {
+      "slug": "colour-diaries",
+      "name": "Colour Diaries",
+      "nav": "Stories",
+      "description": "Tales I write, tell and dream up.",
+      "color": "#FFD36E",
+      "label": "#8A5A00"
+    },
+    {
+      "slug": "splash-lab",
+      "name": "Splash Lab",
+      "nav": "Creator",
+      "description": "Behind the scenes of making stuff.",
+      "color": "#B9A6F2",
+      "label": "#5B3FC4"
+    }
+  ]
+}

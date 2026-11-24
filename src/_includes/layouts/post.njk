@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+---
+{% set c = category | cat %}
+<article class="post">
+  <header class="post-head narrow">
+    <a class="chip chip--lime" href="/category/{{ c.slug }}/">{{ c.name }}</a>
+    <h1 class="post-title">{{ title }}</h1>
+    <p class="post-meta">by <strong>{{ site.author }}</strong> · <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time> · {{ content | readingTime }} min read</p>
+  </header>
+
+  <div class="post-cover wide">
+    {% if cover %}
+    <img src="{{ cover }}" alt="{{ coverAlt or '' }}">
+    {% else %}
+    <div class="post-cover-ph" style="background: {{ c.color }}" aria-hidden="true"></div>
+    {% endif %}
+  </div>
+
+  <div class="prose narrow">
+    {{ content | safe }}
+  </div>
+
+  <div class="post-actions narrow" data-share data-title="{{ title }}" data-url="{{ page.url | absUrl }}">
+    <button type="button" class="like" data-like="{{ page.fileSlug }}" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.2C13.8 6.2 15.3 5 17.4 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+      <span class="like-label">Like</span>
+      <span class="like-count" data-like-count>0</span>
+    </button>
+    <div class="share">
+      <button type="button" class="btn btn--lime" data-share-native hidden>Share</button>
+      <a class="btn btn--ghost" data-share-whatsapp target="_blank" rel="noopener" href="#">WhatsApp</a>
+      <a class="btn btn--ghost" data-share-x target="_blank" rel="noopener" href="#">X</a>
+      <button type="button" class="btn btn--ghost" data-share-copy>Copy link</button>
+    </div>
+  </div>
+
+  <aside class="narrow">
+    <div class="author-box">
+      <span class="author-title">written by Z ✦</span>
+      <p>{{ site.bio }}</p>
+      <a href="/about/">More about me →</a>
+    </div>
+  </aside>
+</article>
+
+{% set related = collections.posts | byCategory(category) | excludeUrl(page.url) %}
+{% if related.length == 0 %}{% set related = collections.posts | excludeUrl(page.url) %}{% endif %}
+{% if related.length %}
+<section class="wrap more">
+  <h2 class="section-title">more like this ✦</h2>
+  <div class="grid">
+    {% for post in related | limit(3) %}
+      {% include "partials/card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

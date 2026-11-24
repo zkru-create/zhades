@@ -1,0 +1,10 @@
+<footer class="site-footer wrap">
+  <span>{{ site.footerLine }}</span>
+  <nav aria-label="Footer">
+    {% if site.social.instagram %}<a href="{{ site.social.instagram }}" rel="me noopener" target="_blank">Instagram</a>{% endif %}
+    {% if site.social.youtube %}<a href="{{ site.social.youtube }}" rel="me noopener" target="_blank">YouTube</a>{% endif %}
+    {% if site.social.pinterest %}<a href="{{ site.social.pinterest }}" rel="me noopener" target="_blank">Pinterest</a>{% endif %}
+    <a href="/contact/">Say hi</a>
+    <span>© {{ site.name }}</span>
+  </nav>
+</footer>

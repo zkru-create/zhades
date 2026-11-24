@@ -1,0 +1,17 @@
+{% set c = post.data.category | cat %}
+{% set tilts = [-1.5, 1, -0.8, 1.4, -1.2, 0.8] %}
+{% set heights = [320, 220, 280, 240, 300, 220] %}
+{% set i = (loop.index0 if loop else 0) % 6 %}
+<article class="card {% if i % 2 %}card--lime{% else %}card--blue{% endif %}" data-filter-item data-value="{{ post.data.category }}" style="--tilt: {{ tilts[i] }}deg">
+  <a href="{{ post.url }}" class="card-link">
+    {% if post.data.cover %}
+    <img class="card-img" src="{{ post.data.cover }}" alt="" loading="lazy">
+    {% else %}
+    <div class="card-img card-img--ph" style="background: {{ c.color }}; height: {{ heights[i] }}px"></div>
+    {% endif %}
+    <div class="card-body">
+      <span class="card-cat" style="color: {{ c.label }}">{{ c.name }}</span>
+      <h2 class="card-title">{{ post.data.title }}</h2>
+    </div>
+  </a>
+</article>

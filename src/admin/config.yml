@@ -1,0 +1,82 @@
+# Zhades writing desk (Decap CMS)
+# 1. Replace YOUR-GITHUB-USERNAME below with your GitHub username.
+# 2. If you use your own domain later, change base_url and site_url to it.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/zhades
+  branch: main
+  base_url: https://zhades.pages.dev
+  auth_endpoint: api/auth
+  commit_messages:
+    create: "New {{collection}}: {{slug}}"
+    update: "Update {{collection}}: {{slug}}"
+    delete: "Delete {{collection}}: {{slug}}"
+    uploadMedia: "Upload {{path}}"
+    deleteMedia: "Delete {{path}}"
+
+site_url: https://zhades.pages.dev
+display_url: https://zhades.pages.dev
+logo_url: /assets/icons/zhades-icon-512.png
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    description: Write a new post. Turn off "Draft" and press Publish to put it live.
+    folder: src/posts
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    preview_path: "posts/{{slug}}"
+    summary: "{{title}} · {{date}}"
+    sortable_fields: [date, title, category]
+    view_filters:
+      - { label: Drafts, field: draft, pattern: true }
+      - { label: Shade Stories, field: category, pattern: shade-stories }
+      - { label: Tinted Worlds, field: category, pattern: tinted-worlds }
+      - { label: Colour Diaries, field: category, pattern: colour-diaries }
+      - { label: Splash Lab, field: category, pattern: splash-lab }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Publish date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: "Shade Stories (style & fashion)", value: shade-stories }
+          - { label: "Tinted Worlds (gaming)", value: tinted-worlds }
+          - { label: "Colour Diaries (stories & life)", value: colour-diaries }
+          - { label: "Splash Lab (creator stuff)", value: splash-lab }
+      - { label: Short intro, name: description, widget: text, required: false, hint: "One or two lines. Shows in link previews when people share the post." }
+      - { label: Cover image, name: cover, widget: image, required: false, choose_url: false }
+      - { label: Cover image description, name: coverAlt, widget: string, required: false, hint: "What's in the picture, for people using screen readers." }
+      - { label: Draft (keep hidden), name: draft, widget: boolean, default: false }
+      - { label: Story, name: body, widget: markdown }
+
+  - name: gallery
+    label: Gallery
+    label_singular: Art piece
+    description: Add a painting, sketch or digital piece to the gallery.
+    folder: src/gallery
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} · {{type}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - { label: Painting, value: painting }
+          - { label: Sketch, value: sketch }
+          - { label: Digital, value: digital }
+      - { label: Medium, name: medium, widget: string, required: false, hint: "e.g. acrylic on canvas" }
+      - { label: Image, name: image, widget: image, choose_url: false }
+      - { label: Notes, name: body, widget: markdown, required: false }

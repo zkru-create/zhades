@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero wrap">
+  <h1 class="hero-title">every colour<br>has a <span class="lime">story.</span></h1>
+  <p class="hero-sub">Style, stories and a splash of play, by Z from Bengaluru.</p>
+</section>
+
+<section class="wrap">
+  <div class="filters" role="group" aria-label="Filter posts" data-filter-group>
+    <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+    {% for c in site.categories %}
+    <button type="button" class="filter" data-filter="{{ c.slug }}" aria-pressed="false">{{ c.name }}</button>
+    {% endfor %}
+  </div>
+
+  {% if collections.posts.length %}
+  <div class="masonry">
+    {% for post in collections.posts %}
+      {% include "partials/card.njk" %}
+    {% endfor %}
+  </div>
+  <p class="empty" data-filter-empty hidden>Nothing in this shade yet. First drop coming soon ✦</p>
+  {% else %}
+  <p class="empty">First drop coming soon ✦</p>
+  {% endif %}
+</section>

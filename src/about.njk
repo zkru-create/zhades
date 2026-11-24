@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: About Z
+permalink: /about/
+---
+<section class="wrap about-intro">
+  <div class="about-badge" aria-hidden="true">Z</div>
+  <div class="about-text">
+    <h1 class="page-title">hey, it's Z <span class="lime">✦</span></h1>
+    <p>Welcome to <strong>Zhades</strong>, my little corner of the internet where colours, stories and play collide.</p>
+    <p>I'm a gamer, a painter, a storyteller, a self stylist and a content creator, all running on chai and creativity from Bengaluru. Some days I'm deep in a game, some days I've got paint on my hands, and most days I'm scribbling a story in my head.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title">what you'll find here</h2>
+  <div class="cat-cards">
+    {% for c in site.categories %}
+    <a class="cat-card" href="/category/{{ c.slug }}/" style="background: {{ c.color }}; --tilt: {{ [-1, 0.8, -0.6, 1.2][loop.index0] }}deg">
+      <span class="cat-card-title">{{ c.name }}</span>
+      <span>{{ c.description }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout">
+    <div>
+      <h2 class="callout-title">no rules, no one aesthetic</h2>
+      <p>Just everything I love, in every shade. Pull up a chair. Let's make it colourful. – Z</p>
+    </div>
+    <a class="btn btn--lime" href="/contact/">Say hi</a>
+  </div>
+</section>

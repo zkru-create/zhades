@@ -1,0 +1,13 @@
+<header class="site-header wrap">
+  <a href="/" class="logo" aria-label="Zhades home">
+    <span class="logo-badge" aria-hidden="true">Z</span><span class="logo-word" aria-hidden="true">hades</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    {% for c in site.categories %}
+    {% set href = "/category/" + c.slug + "/" %}
+    <a href="{{ href }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ c.nav }}</a>
+    {% endfor %}
+    <a href="/gallery/"{% if page.url == "/gallery/" %} aria-current="page"{% endif %}>Art</a>
+    <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About Z</a>
+  </nav>
+</header>

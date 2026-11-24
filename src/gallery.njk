@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Gallery
+permalink: /gallery/
+---
+<section class="wrap page-head">
+  <div>
+    <h1 class="page-title">the gallery <span class="lime">✦</span></h1>
+    <p class="hero-sub">Paintings, sketches and everything in between.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter art" data-filter-group>
+    <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="filter" data-filter="painting" aria-pressed="false">Paintings</button>
+    <button type="button" class="filter" data-filter="sketch" aria-pressed="false">Sketches</button>
+    <button type="button" class="filter" data-filter="digital" aria-pressed="false">Digital</button>
+  </div>
+</section>
+
+<section class="wrap">
+  {% if collections.gallery.length %}
+  <div class="masonry">
+    {% for art in collections.gallery %}
+    <figure class="art" data-filter-item data-value="{{ art.data.type }}">
+      <img src="{{ art.data.image }}" alt="{{ art.data.title }}" loading="lazy">
+      <figcaption><strong>{{ art.data.title }}</strong>{% if art.data.medium %} · {{ art.data.medium }}{% endif %}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+  <p class="empty" data-filter-empty hidden>Nothing here yet ✦</p>
+  {% else %}
+  <p class="empty">The walls are still drying. First pieces coming soon ✦</p>
+  {% endif %}
+
+  <div class="callout">
+    <h2 class="callout-title">want to collab? <span class="lime">say hi</span></h2>
+    <a class="btn btn--lime" href="/contact/">Get in touch →</a>
+  </div>
+</section>

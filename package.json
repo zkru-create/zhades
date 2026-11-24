@@ -1,0 +1,14 @@
+{
+  "name": "zhades",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zhades — style, stories & a splash of play",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

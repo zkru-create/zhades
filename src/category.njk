@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: site.categories
+  size: 1
+  alias: category
+permalink: "/category/{{ category.slug }}/"
+eleventyComputed:
+  title: "{{ category.name }}"
+  description: "{{ category.description }}"
+---
+<section class="cat-hero">
+  <div class="wrap cat-hero-inner">
+    <div>
+      <span class="chip chip--lime">Category</span>
+      <h1 class="cat-title">{{ category.name }}</h1>
+      <p class="cat-sub">{{ category.description }}</p>
+    </div>
+    <svg class="cat-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z"/></svg>
+  </div>
+</section>
+
+<section class="wrap">
+  {% set list = collections.posts | byCategory(category.slug) %}
+  {% if list.length %}
+  <div class="grid">
+    {% for post in list %}
+      {% include "partials/card.njk" %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="empty">Nothing here yet. First drop coming soon ✦</p>
+  {% endif %}
+</section>

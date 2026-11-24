@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: Say hi
+permalink: /contact/
+---
+<section class="wrap contact">
+  <div class="contact-intro">
+    <h1 class="page-title">say <span class="lime">hi</span> ✦</h1>
+    <p>Got a collab idea, a game I should play, or just want to talk colours? Drop a message.</p>
+    <p class="notice notice--ok" data-contact-sent hidden role="status">Got it! Thanks for saying hi ✦</p>
+    <p class="notice notice--err" data-contact-error hidden role="alert">Something went wrong. Please fill in every field and try again.</p>
+  </div>
+
+  <form class="form" method="post" action="/api/contact">
+    <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" required maxlength="100" autocomplete="name"></div>
+    <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required maxlength="200" autocomplete="email"></div>
+    <div class="field"><label for="c-topic">What's it about?</label>
+      <select id="c-topic" name="topic"><option>Collab</option><option>Game suggestion</option><option>Just saying hi</option><option>Something else</option></select>
+    </div>
+    <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="5" required maxlength="5000"></textarea></div>
+    <div class="hp" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <button type="submit" class="btn btn--lime btn--big">Send it ✦</button>
+  </form>
+</section>
