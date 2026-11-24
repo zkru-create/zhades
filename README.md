@@ -74,3 +74,4 @@ Add your profile links in `src/_data/site.json` under `social`. Empty links stay
 | `functions/api/` | Likes, contact form and GitHub login (Cloudflare Functions) |
 | `src/admin/` | The writing desk |
 
+
