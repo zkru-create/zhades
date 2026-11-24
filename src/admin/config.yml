@@ -5,7 +5,7 @@ backend:
   name: github
   repo: zkru-create/zhades
   branch: main
-  base_url: https://zhades.pages.dev
+  base_url: https://zpace.zhades.in
   auth_endpoint: api/auth
   commit_messages:
     create: "New {{collection}}: {{slug}}"
@@ -14,8 +14,8 @@ backend:
     uploadMedia: "Upload {{path}}"
     deleteMedia: "Delete {{path}}"
 
-site_url: https://zhades.pages.dev
-display_url: https://zhades.pages.dev
+site_url: https://zpace.zhades.in
+display_url: https://zpace.zhades.in
 logo_url: /assets/icons/zhades-icon-512.png
 
 media_folder: src/assets/uploads
