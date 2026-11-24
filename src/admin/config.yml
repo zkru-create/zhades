@@ -3,7 +3,7 @@
 # 2. If you use your own domain later, change base_url and site_url to it.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/zhades
+  repo: zkru-create/zhades
   branch: main
   base_url: https://zhades.pages.dev
   auth_endpoint: api/auth
