@@ -73,3 +73,4 @@ Add your profile links in `src/_data/site.json` under `social`. Empty links stay
 | `src/assets/css/style.css` | The Midnight Lime theme |
 | `functions/api/` | Likes, contact form and GitHub login (Cloudflare Functions) |
 | `src/admin/` | The writing desk |
+
